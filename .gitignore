@@ -1,0 +1,18 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+*.pyc
+node_modules/
+.obsidian/workspace.json
+secrets/
+*.session
+credentials.json
+token.json
+
+# Virtual environments
+.venv
+.env
