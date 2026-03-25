@@ -1,0 +1,11 @@
+2026-03-13 05:56:28  INFO      orchestrator  Orchestrator starting — vault: /mnt/d/HACKATHON_00/AI_Employee_Vault
+2026-03-13 05:56:28  INFO      orchestrator  Needs_Action/ is empty — nothing to do.
+2026-03-13 05:58:25  INFO      orchestrator  Orchestrator starting — vault: /mnt/d/HACKATHON_00/AI_Employee_Vault
+2026-03-13 05:58:25  INFO      orchestrator  Needs_Action/ is empty — nothing to do.
+2026-03-13 05:59:43  INFO      run_watchers  Vault root  : /mnt/d/HACKATHON_00/AI_Employee_Vault
+2026-03-13 05:59:43  INFO      run_watchers  Env file    : /mnt/d/HACKATHON_00/AI_Employee_Vault/.env (loaded)
+2026-03-13 05:59:43  INFO      run_watchers  Log file    : /mnt/d/HACKATHON_00/AI_Employee_Vault/Logs/watcher_2026-03-13.log
+2026-03-13 05:59:43  INFO      run_watchers  Started watcher thread: FilesystemWatcher
+2026-03-13 05:59:43  INFO      FilesystemWatcher  FilesystemWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Inbox
+2026-03-13 06:01:44  INFO      orchestrator  Orchestrator starting — vault: /mnt/d/HACKATHON_00/AI_Employee_Vault
+2026-03-13 06:01:44  INFO      orchestrator  Needs_Action/ is empty — nothing to do.

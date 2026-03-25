@@ -1,0 +1,45 @@
+2026-02-24 03:05:33  INFO      run_watchers  Vault root  : /mnt/d/HACKATHON_00/AI_Employee_Vault
+2026-02-24 03:05:33  INFO      run_watchers  Env file    : /mnt/d/HACKATHON_00/AI_Employee_Vault/.env (loaded)
+2026-02-24 03:05:33  INFO      run_watchers  Log file    : /mnt/d/HACKATHON_00/AI_Employee_Vault/Logs/watcher_2026-02-24.log
+2026-02-24 03:05:33  INFO      FilesystemWatcher  FilesystemWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Inbox
+2026-02-24 03:05:33  INFO      run_watchers  Started watcher thread: FilesystemWatcher
+2026-02-24 03:10:07  INFO      run_watchers  Vault root  : /mnt/d/HACKATHON_00/AI_Employee_Vault
+2026-02-24 03:10:07  INFO      run_watchers  Env file    : /mnt/d/HACKATHON_00/AI_Employee_Vault/.env (loaded)
+2026-02-24 03:10:07  INFO      run_watchers  Log file    : /mnt/d/HACKATHON_00/AI_Employee_Vault/Logs/watcher_2026-02-24.log
+2026-02-24 03:10:07  INFO      FilesystemWatcher  FilesystemWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Inbox
+2026-02-24 03:10:07  INFO      run_watchers  Started watcher thread: FilesystemWatcher
+2026-02-24 03:15:46  INFO      run_watchers  Vault root  : /mnt/d/HACKATHON_00/AI_Employee_Vault
+2026-02-24 03:15:46  INFO      run_watchers  Env file    : /mnt/d/HACKATHON_00/AI_Employee_Vault/.env (loaded)
+2026-02-24 03:15:46  INFO      run_watchers  Log file    : /mnt/d/HACKATHON_00/AI_Employee_Vault/Logs/watcher_2026-02-24.log
+2026-02-24 03:15:46  INFO      run_watchers  Started watcher thread: FilesystemWatcher
+2026-02-24 03:15:46  INFO      FilesystemWatcher  FilesystemWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Inbox
+2026-02-24 03:16:06  INFO      FilesystemWatcher  Queued 'test_task2.txt' → Needs_Action/FILE_test_task2.txt  (39 bytes)
+2026-02-24 06:04:35  INFO      orchestrator  Orchestrator starting — vault: /mnt/d/HACKATHON_00/AI_Employee_Vault
+2026-02-24 06:04:35  INFO      orchestrator  Found 1 pending file(s):
+2026-02-24 06:04:35  INFO      orchestrator    • FILE_test_task2.txt.md
+2026-02-24 06:04:35  INFO      orchestrator  Dry run complete — Claude was not invoked.
+2026-02-24 06:08:26  INFO      run_watchers  Vault root  : /mnt/d/HACKATHON_00/AI_Employee_Vault
+2026-02-24 06:08:26  INFO      run_watchers  Env file    : /mnt/d/HACKATHON_00/AI_Employee_Vault/.env (loaded)
+2026-02-24 06:08:26  INFO      run_watchers  Log file    : /mnt/d/HACKATHON_00/AI_Employee_Vault/Logs/watcher_2026-02-24.log
+2026-02-24 06:08:26  INFO      run_watchers  Started watcher thread: FilesystemWatcher
+2026-02-24 06:08:26  INFO      FilesystemWatcher  FilesystemWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Inbox
+2026-02-24 06:08:46  INFO      orchestrator  Orchestrator starting — vault: /mnt/d/HACKATHON_00/AI_Employee_Vault
+2026-02-24 06:08:46  INFO      orchestrator  Found 1 pending file(s):
+2026-02-24 06:08:46  INFO      orchestrator    • FILE_test_task2.txt.md
+2026-02-24 06:08:46  INFO      orchestrator  Invoking Claude Code…
+2026-02-24 06:08:47  INFO      FilesystemWatcher  Queued 'client_a_invoice.txt' → Needs_Action/FILE_client_a_invoice.txt  (50 bytes)
+2026-02-24 06:08:47  INFO      FilesystemWatcher  Queued 'client_a_invoice.txt' → Needs_Action/FILE_client_a_invoice.txt  (50 bytes)
+2026-02-24 06:11:34  INFO      FilesystemWatcher  Queued 'expense_report.txt' → Needs_Action/FILE_expense_report.txt  (23 bytes)
+2026-02-24 06:11:34  INFO      FilesystemWatcher  Queued 'new_lead.txt' → Needs_Action/FILE_new_lead.txt  (41 bytes)
+2026-02-24 06:11:34  INFO      FilesystemWatcher  Queued 'meeting_notes.txt' → Needs_Action/FILE_meeting_notes.txt  (35 bytes)
+2026-02-24 06:11:34  INFO      FilesystemWatcher  Queued 'new_lead.txt' → Needs_Action/FILE_new_lead.txt  (41 bytes)
+2026-02-24 06:11:34  INFO      FilesystemWatcher  Queued 'meeting_notes.txt' → Needs_Action/FILE_meeting_notes.txt  (35 bytes)
+2026-02-24 06:11:34  INFO      FilesystemWatcher  Queued 'expense_report.txt' → Needs_Action/FILE_expense_report.txt  (23 bytes)
+2026-02-24 06:13:23  INFO      orchestrator  Orchestrator starting — vault: /mnt/d/HACKATHON_00/AI_Employee_Vault
+2026-02-24 06:13:23  INFO      orchestrator  Found 5 pending file(s):
+2026-02-24 06:13:23  INFO      orchestrator    • FILE_client_a_invoice.txt.md
+2026-02-24 06:13:23  INFO      orchestrator    • FILE_expense_report.txt.md
+2026-02-24 06:13:23  INFO      orchestrator    • FILE_meeting_notes.txt.md
+2026-02-24 06:13:23  INFO      orchestrator    • FILE_new_lead.txt.md
+2026-02-24 06:13:23  INFO      orchestrator    • FILE_test_task2.txt.md
+2026-02-24 06:13:23  INFO      orchestrator  Invoking Claude Code…
