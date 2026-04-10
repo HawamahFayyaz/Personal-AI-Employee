@@ -223,6 +223,34 @@ _DISPATCHERS: dict[str, Any] = {
     "payment": _dispatch_payment,
 }
 
+# Register social media dispatchers if available
+try:
+    from Watchers.social_dispatcher import (
+        dispatch_facebook_post,
+        dispatch_instagram_post,
+        dispatch_social_reply,
+    )
+    _DISPATCHERS.update({
+        "facebook_post":  dispatch_facebook_post,
+        "instagram_post": dispatch_instagram_post,
+        "social_reply":   dispatch_social_reply,
+    })
+except ImportError:
+    pass
+
+# Register Twitter dispatchers if available
+try:
+    from Watchers.twitter_dispatcher import (
+        dispatch_tweet,
+        dispatch_tweet_reply,
+    )
+    _DISPATCHERS.update({
+        "tweet":        dispatch_tweet,
+        "tweet_reply":  dispatch_tweet_reply,
+    })
+except ImportError:
+    pass
+
 
 # ---------------------------------------------------------------------------
 # Dashboard updater

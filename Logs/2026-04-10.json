@@ -23,5 +23,113 @@
       "FILE_proposal_client_b.txt.md"
     ],
     "summary": "Claude processed 1 file(s) from Needs_Action/."
+  },
+  {
+    "timestamp": "2026-04-10T13:00:13.732880+00:00",
+    "action_type": "ralph_loop",
+    "result": "max_iterations",
+    "task_id": "20260410_130013_DC0092",
+    "iterations_used": 2,
+    "summary": "Reached max iterations (2) without completion signal",
+    "task": "Test dry-run task"
+  },
+  {
+    "timestamp": "2026-04-10T13:00:32.450412+00:00",
+    "action_type": "ralph_loop",
+    "result": "max_iterations",
+    "task_id": "20260410_130032_79061D",
+    "iterations_used": 2,
+    "summary": "Reached max iterations (2) without completion signal",
+    "task": "Test dry-run task"
+  },
+  {
+    "timestamp": "2026-04-10T13:01:07.335739+00:00",
+    "action_type": "ralph_loop",
+    "result": "stopped",
+    "task_id": "20260410_130107_3816C5",
+    "iterations_used": 0,
+    "summary": "Halted by STOP_RALPH at iteration 0",
+    "task": "Should stop immediately"
+  },
+  {
+    "timestamp": "2026-04-10T15:19:07.466487+00:00",
+    "action_type": "gmail_check",
+    "actor": "watcher",
+    "target": "inbox",
+    "parameters": {
+      "query": "is:unread is:important"
+    },
+    "approval_status": "auto",
+    "approved_by": "auto",
+    "result": "success",
+    "error_message": null,
+    "duration_ms": null
+  },
+  {
+    "timestamp": "2026-04-10T15:19:07.480845+00:00",
+    "action_type": "email_send",
+    "actor": "mcp_server",
+    "target": "test@example.com",
+    "parameters": {},
+    "approval_status": "auto",
+    "approved_by": "auto",
+    "result": "success",
+    "error_message": null,
+    "duration_ms": 10
+  },
+  {
+    "timestamp": "2026-04-10T15:19:07.485786+00:00",
+    "action_type": "odoo_write",
+    "actor": "watcher",
+    "target": "sale.order",
+    "parameters": {},
+    "approval_status": "auto",
+    "approved_by": "auto",
+    "result": "error",
+    "error_message": "Odoo timeout",
+    "duration_ms": 0
+  },
+  {
+    "timestamp": "2026-04-10T17:00:00.977086+00:00",
+    "action_type": "orchestrator_run",
+    "result": "error",
+    "files_submitted": [
+      "FILE_q2_proposal.txt.md"
+    ],
+    "summary": "Claude exited with code 1."
+  },
+  {
+    "timestamp": "2026-04-10T22:01:02Z",
+    "action_type": "reasoning_loop",
+    "items_perceived": 1,
+    "full_auto_completed": 1,
+    "needs_approval_queued": 0,
+    "never_auto_blocked": 0,
+    "plans_created": [
+      "PLAN_20260410_220100_FILE_q2_proposal.txt.md"
+    ],
+    "flags_raised": [
+      "new_client in FILE_q2_proposal.txt.md",
+      "Q2_proposal in FILE_q2_proposal.txt.md"
+    ],
+    "summary": "Processed 1 item: q2_proposal.txt is a 36-byte stub from an unknown new client; all internal processing completed autonomously (AUT-FA); human follow-up recommended to obtain full proposal and client contact details."
+  },
+  {
+    "timestamp": "2026-04-10T17:05:06.034147+00:00",
+    "action_type": "orchestrator_run",
+    "result": "success",
+    "files_submitted": [
+      "FILE_q2_proposal.txt.md"
+    ],
+    "summary": "Claude processed 1 file(s) from Needs_Action/."
+  },
+  {
+    "timestamp": "2026-04-10T17:07:01.386647+00:00",
+    "action_type": "ralph_loop",
+    "result": "stopped",
+    "task_id": "20260410_170701_4D330F",
+    "iterations_used": 0,
+    "summary": "Halted by STOP_RALPH at iteration 0",
+    "task": "Read all files in Needs_Action and create plans for each"
   }
 ]

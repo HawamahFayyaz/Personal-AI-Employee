@@ -1,0 +1,8 @@
+[
+  {
+    "timestamp": "2026-04-10T15:14:34.266156+00:00",
+    "kind": "transient_exhausted",
+    "message": "test_exhaust failed after 3 retries",
+    "context": {}
+  }
+]

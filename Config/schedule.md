@@ -18,6 +18,15 @@ tasks:
     module: Watchers.linkedin_poster
     args: generate
     enabled: true
+
+  - name: ceo_briefing
+    description: Monday CEO briefing — gathers week data and generates briefing via Claude
+    schedule: sunday
+    time: "20:00"
+    command: python
+    module: scripts.generate_briefing
+    args: ""
+    enabled: true
 ---
 
 # Schedule Configuration
@@ -34,6 +43,7 @@ Restart the scheduler (or send SIGHUP) for changes to take effect.
 |---|---|---|---|---|
 | `daily_dashboard_update` | Every day | 08:00 | Claude → update_dashboard skill | ✓ enabled |
 | `linkedin_post_generation` | Mon / Wed / Fri | 09:00 | `linkedin_poster generate` | ✓ enabled |
+| `ceo_briefing` | Every Sunday | 20:00 | `scripts.generate_briefing` | ✓ enabled |
 
 ---
 
@@ -88,6 +98,9 @@ PYTHON=/mnt/d/HACKATHON_00/AI_Employee_Vault/.venv/bin/python3
 
 # LinkedIn post generation — Monday, Wednesday, Friday at 09:00 UTC
 0 9 * * 1,3,5   cd $VAULT && $PYTHON -m Watchers.linkedin_poster generate >> Logs/cron.log 2>&1
+
+# CEO Briefing — every Sunday at 20:00 UTC (generates Monday morning briefing)
+0 20 * * 0      cd $VAULT && $PYTHON scripts/generate_briefing.py >> Logs/cron.log 2>&1
 ```
 
 > **Note:** System cron uses local time by default. Prefix commands with

@@ -149,6 +149,18 @@ def expand_days(schedule_str: str) -> list[str]:
 # Built-in Claude prompts
 # ---------------------------------------------------------------------------
 
+def _prompt_ceo_briefing() -> str:
+    return (
+        f"You are the AI Employee for this vault. Your vault root is: {VAULT}\n\n"
+        "Read your CEO Briefing skill from: Skills/ceo_briefing_skill/SKILL.md\n\n"
+        "Generate the Monday CEO Briefing for the past week.\n"
+        "Follow ALL phases defined in the skill exactly — analyse the vault data,\n"
+        "generate the briefing, write it to Briefings/, and update Dashboard.md.\n\n"
+        "Work autonomously. Do not ask for clarification.\n"
+        "Print: BRIEFING COMPLETE → <output path> when done."
+    )
+
+
 def _prompt_dashboard_update() -> str:
     return (
         f"You are the AI Employee for this vault. Your vault root is: {VAULT}\n\n"
@@ -175,6 +187,7 @@ def _prompt_process_inbox() -> str:
 _PROMPTS: dict[str, Any] = {
     "dashboard_update": _prompt_dashboard_update,
     "process_inbox":    _prompt_process_inbox,
+    "ceo_briefing":     _prompt_ceo_briefing,
 }
 
 # ---------------------------------------------------------------------------

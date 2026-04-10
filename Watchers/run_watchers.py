@@ -78,6 +78,45 @@ from Watchers.filesystem_watcher import FilesystemWatcher  # noqa: E402
 from Watchers.approval_watcher   import ApprovalWatcher    # noqa: E402
 
 
+def _try_import_twitter() -> tuple[type | None, str]:
+    """Return (TwitterWatcher class, skip_reason)."""
+    try:
+        from Watchers.twitter_watcher import TwitterWatcher
+    except ImportError as exc:
+        return None, f"import failed — {exc}"
+
+    token_file = VAULT_ROOT / ".twitter_token.json"
+    bearer     = os.getenv("TWITTER_BEARER_TOKEN", "")
+
+    if not token_file.exists() and not bearer:
+        return None, (
+            ".twitter_token.json not found and TWITTER_BEARER_TOKEN not set.\n"
+            "      Run: python Watchers/twitter_auth.py"
+        )
+    if not os.getenv("TWITTER_USER_ID", ""):
+        return None, "TWITTER_USER_ID not set in .env — skipping Twitter watcher"
+
+    return TwitterWatcher, ""
+
+
+def _try_import_social() -> tuple[type | None, str]:
+    """Return (SocialMediaWatcher class, skip_reason)."""
+    try:
+        from Watchers.social_media_watcher import SocialMediaWatcher
+    except ImportError as exc:
+        return None, f"import failed — {exc}"
+
+    token   = os.getenv("META_PAGE_ACCESS_TOKEN", "")
+    page_id = os.getenv("META_PAGE_ID", "")
+
+    if not token:
+        return None, "META_PAGE_ACCESS_TOKEN not set in .env — skipping social watcher"
+    if not page_id:
+        return None, "META_PAGE_ID not set in .env — skipping social watcher"
+
+    return SocialMediaWatcher, ""
+
+
 def _try_import_gmail() -> tuple[type | None, str]:
     """Return (GmailWatcher class, reason_string).
 
@@ -269,6 +308,16 @@ def main() -> None:
         help="Skip the Gmail watcher (use if OAuth credentials are not set up).",
     )
     parser.add_argument(
+        "--no-social",
+        action="store_true",
+        help="Skip the Social Media watcher (use if Meta tokens are not set up).",
+    )
+    parser.add_argument(
+        "--no-twitter",
+        action="store_true",
+        help="Skip the Twitter watcher (use if Twitter tokens are not set up).",
+    )
+    parser.add_argument(
         "--dry-run",
         action="store_true",
         help="Set DRY_RUN=true for all watchers (log without calling external APIs).",
@@ -320,12 +369,74 @@ def main() -> None:
                 interval_desc="every 2 min",
             ))
 
-    # 3. ApprovalWatcher
+    # 3. SocialMediaWatcher (optional)
+    social_interval = int(os.getenv("SOCIAL_CHECK_INTERVAL", "300"))
+    if args.no_social:
+        specs.append(WatcherSpec(
+            watcher=None,
+            label="SocialMediaWatcher",
+            monitors=[],
+            interval_desc="",
+            skip_reason="--no-social flag passed",
+        ))
+    else:
+        SocialMediaWatcher, social_skip = _try_import_social()
+        if SocialMediaWatcher is None:
+            specs.append(WatcherSpec(
+                watcher=None,
+                label="SocialMediaWatcher",
+                monitors=[],
+                interval_desc="",
+                skip_reason=social_skip,
+            ))
+        else:
+            specs.append(WatcherSpec(
+                watcher=SocialMediaWatcher(vault_path=str(VAULT_ROOT), check_interval=social_interval),
+                label="SocialMediaWatcher",
+                monitors=[
+                    "Meta Graph API  (FB messages, IG DMs, comments, mentions)",
+                    f"Daily summary at {os.getenv('SOCIAL_SUMMARY_HOUR', '8')}:00 UTC",
+                ],
+                interval_desc=f"every {social_interval}s",
+            ))
+
+    # 4. TwitterWatcher (optional)
+    twitter_interval = int(os.getenv("TWITTER_CHECK_INTERVAL", "300"))
+    if args.no_twitter:
+        specs.append(WatcherSpec(
+            watcher=None,
+            label="TwitterWatcher",
+            monitors=[],
+            interval_desc="",
+            skip_reason="--no-twitter flag passed",
+        ))
+    else:
+        TwitterWatcher, twitter_skip = _try_import_twitter()
+        if TwitterWatcher is None:
+            specs.append(WatcherSpec(
+                watcher=None,
+                label="TwitterWatcher",
+                monitors=[],
+                interval_desc="",
+                skip_reason=twitter_skip,
+            ))
+        else:
+            specs.append(WatcherSpec(
+                watcher=TwitterWatcher(vault_path=str(VAULT_ROOT), check_interval=twitter_interval),
+                label="TwitterWatcher",
+                monitors=[
+                    "Twitter/X API v2  (mentions, DMs)",
+                    f"Daily summary at {os.getenv('TWITTER_SUMMARY_HOUR', '8')}:00 UTC",
+                ],
+                interval_desc=f"every {twitter_interval}s",
+            ))
+
+    # 5. ApprovalWatcher
     specs.append(WatcherSpec(
         watcher=ApprovalWatcher(vault_path=str(VAULT_ROOT), check_interval=10),
         label="ApprovalWatcher",
         monitors=[
-            "Approved/  (dispatch → LinkedIn / Gmail / payment)",
+            "Approved/  (dispatch → LinkedIn / Gmail / Facebook / Instagram / Twitter / payment)",
             "Rejected/  (log & archive)",
         ],
         interval_desc="event-driven",
