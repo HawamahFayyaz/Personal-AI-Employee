@@ -89,7 +89,7 @@ def build_prompt(pending_files: list[Path]) -> str:
     file_list = "\n".join(f"  - {f.name}" for f in pending_files)
 
     # Point Claude at each relevant skill by its vault-relative path.
-    process_skill  = "Skills/process_needs_action/SKILL.md"
+    reasoning_skill = "Skills/reasoning_loop/SKILL.md"
     dashboard_skill = "Skills/update_dashboard/SKILL.md"
 
     prompt = f"""You are the AI Employee for this vault. Your vault root is: {VAULT}
@@ -100,25 +100,28 @@ You have {len(pending_files)} file(s) waiting in Needs_Action/:
 Follow these steps in order:
 
 1. Read your skill instructions from:
-   - {process_skill}
+   - {reasoning_skill}
    - {dashboard_skill}
 
-2. Apply the "Process Needs_Action" skill to every file listed above:
-   - Read each file's frontmatter (type, priority, status)
-   - Apply Company_Handbook.md rules to decide routing
-   - Create a Plan in Plans/ for each item
-   - Move each item to Done/ (full-auto) or Pending_Approval/ (needs approval)
-   - Update each file's frontmatter status before moving
+2. Apply the "Reasoning Loop" skill to every file listed above.
+   The skill defines six phases — work through all of them:
 
-3. Apply the "Update Dashboard" skill when all files are processed:
-   - Count files in each folder
-   - Check watcher status from today's log in Logs/
-   - Rewrite Dashboard.md in the canonical format defined in the skill
+   PERCEIVE  — read and triage every item in Needs_Action/ and Pending_Approval/
+   CONSULT   — load Company_Handbook.md rules and Business_Goals.md context
+   REASON    — for each item, produce an explicit reasoning trace citing rule IDs
+   PLAN      — write a self-contained Plan file for every item in Plans/
+   ACT       — execute all full_auto plans immediately; queue the rest
+   REPORT    — update Dashboard.md and write a cycle summary
 
-4. Print a clear summary of everything you did.
+3. Every Plan you write must pass the "cold-start test" defined in the skill:
+   a fresh Claude instance must be able to execute it using only the plan file,
+   Business_Goals.md, and access to the vault folders.
 
-Work autonomously. Do not ask for clarification — apply the handbook rules
-and use your best judgement on anything not explicitly covered.
+4. Print the structured cycle summary from Phase 6 of the skill.
+
+Work autonomously. Cite handbook rule IDs in every routing decision.
+Do not ask for clarification — apply the rules and use your best judgement
+on anything not explicitly covered.
 """
     return prompt.strip()
 

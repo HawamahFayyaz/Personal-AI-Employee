@@ -1,0 +1,43 @@
+2026-04-08 00:27:23  INFO      orchestrator  Orchestrator starting — vault: /mnt/d/HACKATHON_00/AI_Employee_Vault
+2026-04-08 00:27:23  INFO      orchestrator  Needs_Action/ is empty — nothing to do.
+2026-04-08 00:27:37  INFO      orchestrator  Orchestrator starting — vault: /mnt/d/HACKATHON_00/AI_Employee_Vault
+2026-04-08 00:27:37  INFO      orchestrator  Found 1 pending file(s):
+2026-04-08 00:27:37  INFO      orchestrator    • TEST_EMAIL_dry_run.md
+2026-04-08 00:27:37  INFO      orchestrator  Dry run complete — Claude was not invoked.
+2026-04-08 00:31:57  INFO      FilesystemWatcher       FilesystemWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Inbox
+2026-04-08 00:31:57  INFO      run_watchers            Started: FilesystemWatcher       [thread=FilesystemWatcher]
+2026-04-08 00:31:57  INFO      ApprovalWatcher         ApprovalWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Approved and /mnt/d/HACKATHON_00/AI_Employee_Vault/Rejected (poll interval 10s)
+2026-04-08 00:31:57  INFO      run_watchers            Started: ApprovalWatcher         [thread=ApprovalWatcher]
+2026-04-08 00:35:14  INFO      FilesystemWatcher       FilesystemWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Inbox
+2026-04-08 00:35:14  INFO      run_watchers            Started: FilesystemWatcher       [thread=FilesystemWatcher]
+2026-04-08 00:35:14  INFO      ApprovalWatcher         ApprovalWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Approved and /mnt/d/HACKATHON_00/AI_Employee_Vault/Rejected (poll interval 10s)
+2026-04-08 00:35:14  INFO      run_watchers            Started: ApprovalWatcher         [thread=ApprovalWatcher]
+2026-04-08 00:37:32  INFO      FilesystemWatcher       FilesystemWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Inbox
+2026-04-08 00:37:32  INFO      run_watchers            Started: FilesystemWatcher       [thread=FilesystemWatcher]
+2026-04-08 00:37:32  INFO      ApprovalWatcher         ApprovalWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Approved and /mnt/d/HACKATHON_00/AI_Employee_Vault/Rejected (poll interval 10s)
+2026-04-08 00:37:32  INFO      run_watchers            Started: ApprovalWatcher         [thread=ApprovalWatcher]
+2026-04-08 00:40:08  INFO      FilesystemWatcher       FilesystemWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Inbox
+2026-04-08 00:40:08  INFO      run_watchers            Started: FilesystemWatcher       [thread=FilesystemWatcher]
+2026-04-08 00:40:08  INFO      ApprovalWatcher         ApprovalWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Approved and /mnt/d/HACKATHON_00/AI_Employee_Vault/Rejected (poll interval 10s)
+2026-04-08 00:40:08  INFO      run_watchers            Started: ApprovalWatcher         [thread=ApprovalWatcher]
+2026-04-08 00:41:30  INFO      FilesystemWatcher       FilesystemWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Inbox
+2026-04-08 00:41:30  INFO      run_watchers            Started: FilesystemWatcher       [thread=FilesystemWatcher]
+2026-04-08 00:41:30  INFO      ApprovalWatcher         ApprovalWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Approved and /mnt/d/HACKATHON_00/AI_Employee_Vault/Rejected (poll interval 10s)
+2026-04-08 00:41:30  INFO      run_watchers            Started: ApprovalWatcher         [thread=ApprovalWatcher]
+2026-04-08 01:43:21  INFO      scheduler             Registered: 'daily_dashboard_update'        Daily at 08:00 UTC
+2026-04-08 01:43:21  INFO      scheduler             Registered: 'linkedin_post_generation'      Monday at 09:00 UTC
+2026-04-08 01:43:21  INFO      scheduler             Registered: 'linkedin_post_generation'      Wednesday at 09:00 UTC
+2026-04-08 01:43:21  INFO      scheduler             Registered: 'linkedin_post_generation'      Friday at 09:00 UTC
+2026-04-08 01:43:27  INFO      scheduler             Running task 'linkedin_post_generation' immediately (foreground)…
+2026-04-08 01:43:27  INFO      scheduler             [DRY RUN] Task 'linkedin_post_generation' — would run: /mnt/d/HACKATHON_00/AI_Employee_Vault/.venv/bin/python3 -m Watchers.linkedin_poster generate
+2026-04-08 01:43:33  INFO      scheduler             Running task 'daily_dashboard_update' immediately (foreground)…
+2026-04-08 01:43:33  INFO      scheduler             [DRY RUN] Task 'daily_dashboard_update' — would invoke claude with prompt_key='dashboard_update'
+2026-04-08 01:43:43  INFO      scheduler             Registered: 'daily_dashboard_update'        Daily at 08:00 UTC
+2026-04-08 01:43:43  INFO      scheduler             Registered: 'linkedin_post_generation'      Monday at 09:00 UTC
+2026-04-08 01:43:43  INFO      scheduler             Registered: 'linkedin_post_generation'      Wednesday at 09:00 UTC
+2026-04-08 01:43:43  INFO      scheduler             Registered: 'linkedin_post_generation'      Friday at 09:00 UTC
+2026-04-08 01:45:58  INFO      scheduler             Registered: 'daily_dashboard_update'        Daily at 08:00 UTC
+2026-04-08 01:45:58  INFO      scheduler             Registered: 'linkedin_post_generation'      Monday at 09:00 UTC
+2026-04-08 01:45:58  INFO      scheduler             Registered: 'linkedin_post_generation'      Wednesday at 09:00 UTC
+2026-04-08 01:45:58  INFO      scheduler             Registered: 'linkedin_post_generation'      Friday at 09:00 UTC
+2026-04-08 01:45:58  INFO      scheduler             Scheduler running — poll interval 30 s. Press Ctrl+C to stop.

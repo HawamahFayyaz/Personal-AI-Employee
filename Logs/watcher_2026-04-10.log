@@ -1,0 +1,13 @@
+2026-04-10 15:25:26  INFO      run_watchers            Started: FilesystemWatcher       [thread=FilesystemWatcher]
+2026-04-10 15:25:26  INFO      FilesystemWatcher       FilesystemWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Inbox
+2026-04-10 15:25:26  INFO      ApprovalWatcher         ApprovalWatcher started — watching /mnt/d/HACKATHON_00/AI_Employee_Vault/Approved and /mnt/d/HACKATHON_00/AI_Employee_Vault/Rejected (poll interval 10s)
+2026-04-10 15:25:26  INFO      run_watchers            Started: ApprovalWatcher         [thread=ApprovalWatcher]
+2026-04-10 15:25:55  INFO      FilesystemWatcher       Queued 'proposal_client_b.txt' → Needs_Action/FILE_proposal_client_b.txt  (35 bytes)
+2026-04-10 15:28:48  INFO      orchestrator  Orchestrator starting — vault: /mnt/d/HACKATHON_00/AI_Employee_Vault
+2026-04-10 15:28:48  INFO      orchestrator  Found 1 pending file(s):
+2026-04-10 15:28:48  INFO      orchestrator    • FILE_proposal_client_b.txt.md
+2026-04-10 15:28:48  INFO      orchestrator  Invoking Claude Code…
+2026-04-10 15:34:21  INFO      orchestrator  Claude finished successfully.
+2026-04-10 15:42:54  INFO      ApprovalWatcher         Approved file detected: APPROVAL_20260410_152900_proposal_client_b.md
+2026-04-10 15:42:54  WARNING   ApprovalWatcher         No dispatcher for action='send_email' in APPROVAL_20260410_152900_proposal_client_b.md — moving to Done/ unexecuted.
+2026-04-10 15:42:54  INFO      ApprovalWatcher         Moved APPROVAL_20260410_152900_proposal_client_b.md → Done/APPROVAL_20260410_152900_proposal_client_b.md

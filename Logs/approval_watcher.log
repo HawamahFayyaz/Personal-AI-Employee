@@ -1,0 +1,12 @@
+
+[2026-04-07T19:18:51.518338+00:00] APPROVED_EXECUTED
+  file   : TEST_LINKEDIN_2026-04-08.md
+  action : linkedin_post
+  detail : DRY RUN — LinkedIn post logged, not sent.
+————————————————————————————————————————————————————————————
+
+[2026-04-07T19:19:01.672597+00:00] REJECTED
+  file   : TEST_REJECTION_2026-04-08.md
+  action : email_send
+  detail : Human rejected this request.
+————————————————————————————————————————————————————————————

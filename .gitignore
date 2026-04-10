@@ -12,6 +12,8 @@ secrets/
 *.session
 credentials.json
 token.json
+.obsidian/
+client_secret_*.json
 
 # Virtual environments
 .venv
